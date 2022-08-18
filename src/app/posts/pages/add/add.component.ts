@@ -80,11 +80,18 @@ export class AddComponent implements OnInit {
     dialog.afterClosed().subscribe((result) => {
       if (result) {
         this.postsService.borrarPost(this.post.id!)
-        .subscribe((resp) => {
-          this.router.navigate(['/posts'])
-        })
+        .subscribe(post => {this.showSnackbar('Posts Eliminado')})
+      this.router.navigate(['/posts/list',])
       }
     })
+    // dialog.afterClosed().subscribe((result) => {
+    //   if (result) {
+    //     this.postsService.borrarPost(this.post.id!)
+    //     .subscribe((resp) => {
+    //       this.router.navigate(['/posts'])
+    //     })
+    //   }
+    // })
 
   }
   showSnackbar(message:string){
