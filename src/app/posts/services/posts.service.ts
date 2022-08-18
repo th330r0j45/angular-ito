@@ -35,8 +35,8 @@ export class PostsService {
     return this.http.delete<any>(`${this.baseUrl}/productos/${id}`);
   }
   // Comments
-  getProductos(id:number): Observable<Post>{
-    return this.http.get<Post>(`${this.baseUrl}/comments/${id}`)
+  getCreadorPost(id:number): Observable<Post>{
+    return this.http.get<Post>(`${this.baseUrl}/users/${id}`)
   }
   // getSugerencias(termino:string): Observable<Post[]>{
   //   return this.http.get<Post[]>(`${this.baseUrl}/Clientes/?q=${termino}&limit=6`)

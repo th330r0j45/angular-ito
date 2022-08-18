@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 import { Post,Comment } from 'src/app/posts/interfaces/posts';
+import { Users } from 'src/app/posts/interfaces/users';
 import { switchMap } from 'rxjs';
 
 @Component({
@@ -13,6 +14,7 @@ export class PostComponent implements OnInit {
 
   posts:any = [];
   comments:any = [];
+  users:any = [];
   post!: Post;
 
   constructor(
@@ -37,6 +39,16 @@ export class PostComponent implements OnInit {
     .subscribe(
       (response: any) => {
         this.posts = response;
+        
+      },
+      (err:any) => {}
+      
+    );
+    this.activedRoute.params.
+    pipe( switchMap ( ({id}) => this.postsService.getCreadorPost(id) ) )
+    .subscribe(
+      (response: any) => {
+        this.users = response;
         
       },
       (err:any) => {}

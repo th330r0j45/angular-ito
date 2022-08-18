@@ -1,34 +1,57 @@
-
 <div class="my-4 text-left">
-    <button mat-mini-fab color="accent" (click)="return()"><mat-icon>arrow_back</mat-icon></button>
+  <button mat-mini-fab color="accent" (click)="return()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
 
 </div>
+
 <mat-card>
-    <mat-card-header>
-        <mat-card-subtitle> {{posts.body}} </mat-card-subtitle>
-        <mat-card-title> {{posts.title}} </mat-card-title>
+  <mat-card-header>
+    <mat-card-subtitle> {{posts.body}} </mat-card-subtitle>
+    <mat-card-title> {{posts.title}} </mat-card-title>
 
-    </mat-card-header>
+  </mat-card-header>
 
-    <mat-card-actions class="text-end">
-        <!-- <button mat-stroked-button color="accent" [routerLink]="['/productos', posts.id]">Seleccionar</button> -->
-        <!-- <button mat-button  [routerLink]="['/productos/editar', posts.id]">Editar</button> -->
-        <button  mat-mini-fab color="accent" [routerLink]="['/posts/edit', posts.id]"><mat-icon>edit</mat-icon></button>
+  <mat-card-actions class="text-end">
+    <!-- <button mat-stroked-button color="accent" [routerLink]="['/productos', posts.id]">Seleccionar</button> -->
+    <!-- <button mat-button  [routerLink]="['/productos/editar', posts.id]">Editar</button> -->
+    <button mat-mini-fab color="accent" [routerLink]="['/posts/edit', posts.id]">
+      <mat-icon>edit</mat-icon>
+    </button>
 
-    </mat-card-actions>
+  </mat-card-actions>
 
-    
+
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <small class="text-muted pe-1"> Autor:</small>{{users.name}}
+
+      </mat-panel-title>
+      <mat-panel-title>
+        <small class="text-muted pe-1"> Editorial:</small>{{users.company.name}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="text-end">
+      
+    <p> <small class="text-muted pe-1"> Nombre:</small>{{users.name}}</p>
+    <p> <small class="text-muted pe-1"> Website:</small>{{users.website}}</p>
+    <p> <small class="text-muted pe-1"> Ciudad:</small>{{users.address.city}}</p>
+    <p> <small class="text-muted pe-1"> Telefono:</small>{{users.address.city}}</p>
+    </div>
+
+  </mat-expansion-panel>
 
 </mat-card>
 
-  <mat-list>
-    <div mat-subheader>Comentarios</div>
-    <mat-list-item *ngFor="let comment of comments">
-      <mat-icon mat-list-icon>forum</mat-icon>
-      <div mat-line>{{comment.name}}</div>
-      <div mat-line> {{comment.body}} </div>
-      <div mat-line> {{comment.email}} </div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    
-  </mat-list>
+<mat-list>
+  <div mat-subheader>Comentarios {{comments.length}}</div>
+  <mat-list-item *ngFor="let comment of comments">
+    <mat-icon mat-list-icon>forum</mat-icon>
+    <div mat-line>{{comment.name}}</div>
+    <div mat-line> {{comment.body}} </div>
+    <div mat-line> {{comment.email}} </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>

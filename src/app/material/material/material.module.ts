@@ -16,6 +16,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
+
 
 
 
@@ -35,7 +37,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSelectModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatExpansionModule
   ],
 })
 export class MaterialModule { }

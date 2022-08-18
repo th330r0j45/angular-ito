@@ -21,7 +21,7 @@ export class ListComponent implements OnInit {
   pageSize: number = 10;
   tableSizes: any = [10, 20, 30];
   pageSizeOptions: any = [10, 20, 30];
-  
+
 
 
   constructor(
@@ -33,7 +33,11 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.postsService.getPosts()
       .subscribe(posts => this.posts = posts);
-      this._MatPaginatorIntl.itemsPerPageLabel = 'Posts por página';
+    this._MatPaginatorIntl.itemsPerPageLabel = 'Posts por página';
+    this._MatPaginatorIntl.firstPageLabel = 'Primera página';
+    this._MatPaginatorIntl.lastPageLabel = 'Última página';
+    this._MatPaginatorIntl.nextPageLabel = 'Siguiente';
+    this._MatPaginatorIntl.previousPageLabel = 'Anterior';
 
   }
   onTableDataChange(event: any) {
