@@ -1,0 +1,26 @@
+<mat-card>
+
+    <!-- <mat-card-header>
+        <mat-card-title> {{post.}} </mat-card-title>
+        <mat-card-subtitle> {{post.alter_ego}} </mat-card-subtitle>
+    </mat-card-header> -->
+
+    <!-- <img mat-card-image [src]="post | imagen"> -->
+
+    <!-- <mat-card-content>
+        <p>
+            {{post.nombre}}
+        </p>
+    </mat-card-content> -->
+    <mat-card-header>
+        <mat-card-subtitle> {{post.id}} </mat-card-subtitle>
+        <mat-card-title> {{post.title}} </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-card-actions>
+        <button mat-button color="accent" [routerLink]="['/posts', post.id]">Seleccionar</button>
+        <button mat-button color="info" [routerLink]="['/posts/edit', post.id]">Editar</button>
+    </mat-card-actions>
+
+</mat-card>

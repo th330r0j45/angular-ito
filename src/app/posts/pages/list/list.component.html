@@ -1,0 +1,16 @@
+<mat-divider></mat-divider>
+<br>
+<h1 class="text-center"> Seleccione un post</h1>
+<div>
+
+    <div *ngFor="let post of posts| paginate : { itemsPerPage: tableSize,
+            currentPage: page,
+            totalItems: count };">
+        <app-post-card [post]="post"></app-post-card>
+
+    </div>
+    
+ <mat-paginator class="my-4" [length]="this.posts.length" pageSize="pageSize"  [showFirstLastButtons]="true"  [pageSizeOptions]="pageSizeOptions"
+ (page)="onTableDataChange($event)" ></mat-paginator>
+
+</div>
