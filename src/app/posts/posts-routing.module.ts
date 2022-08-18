@@ -9,7 +9,7 @@ import { PostComponent } from './pages/post/post.component';
 const routes: Routes = [
   {
     path: '',
-    component:HomeComponent,
+    component: HomeComponent,
     children: [
       {
         path: 'list',
@@ -33,7 +33,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'posts',
+        redirectTo: 'list',
       },
     ],
   },
