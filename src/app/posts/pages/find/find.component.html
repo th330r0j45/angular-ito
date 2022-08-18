@@ -21,7 +21,6 @@
         </mat-form-field>
     </div>
     <div *ngIf="postSelecionado">
-        <pre>{{postSelecionado | json}}</pre>
         <app-post-card [post]="postSelecionado"></app-post-card>
     </div>
 </div>
