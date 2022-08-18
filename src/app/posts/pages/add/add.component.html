@@ -1,1 +1,42 @@
-<p>add works!</p>
+<!-- <h1>{{ (post.id) ? 'Editar':'Nuevo' }} Post
+    <small>
+        {{ post.title }}
+    </small>
+</h1> -->
+
+<!-- <pre>
+    {{post | json}}
+</pre> -->
+<div class="row">
+    <div class="col my-4">
+
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Titulo del Posts</mat-label>
+                <input matInput type="text" [(ngModel)]="post.title" required>
+            </mat-form-field>
+
+            <mat-form-field >
+                <mat-label>Cuerpo del Posts</mat-label>
+                <input matInput type="text" [(ngModel)]="post.body" required>
+            </mat-form-field>
+          
+        </div>
+
+        
+        <br>
+
+        <div class="container text-center d-flex justify-content-between">
+            <button mat-raised-button color="primary" (click)="save()">
+                <mat-icon>edit</mat-icon>
+                {{ (post.id) ? 'Actualizar':'Crear' }}
+            </button>
+            <button mat-raised-button color="warn" *ngIf="post.id" (click)="deletePost()">
+                <mat-icon>delete</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+
+    </div>
+</div>

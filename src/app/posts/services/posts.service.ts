@@ -26,21 +26,20 @@ export class PostsService {
     return this.http.get<Post>(`${this.baseUrl}/posts/${id}/comments`)
   }
   agregarPost(Post:Post): Observable<Post>{
-    return this.http.post<Post>(`${this.baseUrl}/productos`,Post)
+    return this.http.post<Post>(`${this.baseUrl}/posts`,Post)
   }
   actualizarPost(Post:Post): Observable<Post>{
-    return this.http.put<Post>(`${this.baseUrl}/productos/${Post.id}`,Post);
+    return this.http.put<Post>(`${this.baseUrl}/posts/${Post.id}`,Post);
   }
   borrarPost(id:number): Observable<any>{
-    return this.http.delete<any>(`${this.baseUrl}/productos/${id}`);
+    return this.http.delete<any>(`${this.baseUrl}/posts/${id}`);
   }
   // Comments
   getCreadorPost(id:number): Observable<Post>{
     return this.http.get<Post>(`${this.baseUrl}/users/${id}`)
   }
-  // getSugerencias(termino:string): Observable<Post[]>{
-  //   return this.http.get<Post[]>(`${this.baseUrl}/Clientes/?q=${termino}&limit=6`)
-  // }
-  
+  getSugerencias(termino:string): Observable<Post[]>{
+    return this.http.get<Post[]>(`${this.baseUrl}/posts?userId=${termino}`)
+  }
 }
 

@@ -1,11 +1,13 @@
-<h1>¿Está seguro?</h1>
+
+<div class="text-center">
+    <h1>¿Está seguro?</h1>
 <hr>
 <p>
-    Está a punto de borrar a {{data.title}}
+    Está a punto de borrar a <u>{{data.title}}</u> 
     <br> ¿Desea continuar?
 </p>
-
+</div>
 <div>
-    <button mat-button color="accent" (click)="delete()">Si, borrar!</button>
-    <button mat-button color="info" (click)="cancel()">Cancelar</button>
+    <button mat-button color="warn" (click)="delete()">Si, borrar!</button>
+    <button mat-button  (click)="cancel()">Cancelar</button>
 </div>

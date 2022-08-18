@@ -1,1 +1,27 @@
-<p>find works!</p>
+<div class="text-center">
+    <div class="py-4">
+        <h1>Buscador de Posts</h1>
+        <mat-divider></mat-divider>
+    </div>
+
+    <div class="row">
+        <h3>Buscador por Usuario</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Post a buscar</mat-label>
+            <input type="text" placeholder="Selecciona uno" aria-label="Post a buscar" matInput [(ngModel)]="termino" [matAutocomplete]="auto" (input)="buscando()">
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="opcionSeleccionada($event)">
+                <mat-option *ngFor="let post of posts" [value]="post">
+                    {{post.title}}
+                </mat-option>
+                <mat-option value="" *ngIf="posts.length === 0 && termino.trim().length>0">
+                    No se encontro nada con {{termino}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </div>
+    <div *ngIf="postSelecionado">
+        <pre>{{postSelecionado | json}}</pre>
+        <app-post-card [post]="postSelecionado"></app-post-card>
+    </div>
+</div>
